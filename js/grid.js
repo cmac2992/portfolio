@@ -170,7 +170,7 @@ var Grid = (function() {
 				$currentItem.removeClass( 'og-expanded' );
 				this.$item.addClass( 'og-expanded' );
 				// position the preview correctly
-				this.positionPreview();
+				// this.positionPreview();
 			}
 
 			// update current valuey
@@ -218,7 +218,6 @@ var Grid = (function() {
 				// set the height for the preview and the item
 				this.setHeights();
 				// scroll to position the preview in the right place
-				this.positionPreview();
 			}, this ), 25 );
 
 		},
@@ -254,8 +253,8 @@ var Grid = (function() {
 		},
 		calcHeight : function() {
 
-			var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
-				itemHeight = winsize.height;
+			var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded;
+			var	itemHeight = winsize.height;
 
 			if( heightPreview < settings.minHeight ) {
 				heightPreview = settings.minHeight;
@@ -283,19 +282,6 @@ var Grid = (function() {
 			if( !support ) {
 				onEndFn.call();
 			}
-
-		},
-		positionPreview : function() {
-
-			// scroll page
-			// case 1 : preview height + item height fits in window´s height
-			// case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
-			// case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
-			var position = this.$item.data( 'offsetTop' ),
-				previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-				scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
-			
-			$body.animate( { scrollTop : scrollVal }, settings.speed );
 
 		},
 		setTransition  : function() {
