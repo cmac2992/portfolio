@@ -4,11 +4,12 @@
 	margin: 0 auto;
 	text-align: center;
 	width: 100%;
+	font-size: 0;
 }
 
 .og-grid li {
 	display: inline-block;
-	margin: 10px 5px 0 5px;
+	margin: 0;
 	vertical-align: top;
 	height: 250px;
 }
@@ -24,7 +25,7 @@
 .og-grid li.og-expanded > a::after {
 	top: auto;
 	border: solid transparent;
-	content: " ";
+	content: " ";	
 	height: 0;
 	width: 0;
 	position: absolute;
